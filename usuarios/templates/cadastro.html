@@ -2,7 +2,12 @@
 
 {% block 'titulo' %}Cadastro{% endblock %}
 
-{% block 'conteudo' %} 
+{% block 'conteudo' %}
+<style>
+  body{
+    background-color:#f0f0f5;
+  }
+</style> 
 <div class="container">
     <br>
     {% if status == '0' %}
@@ -34,30 +39,39 @@
         Erro interno do sistema.
       </div>
     {% endif %}
-    <div class="row">
-        <div class="col-md-3">
-            
-        </div>
-        <div class="col-md">
-            <h1>Cadastre-se</h1>
-            <hr>
-
-            <form method="POST" action="{% url 'valida_cadastro' %}"> {% csrf_token %}
-                <label>Nome</label>
-                <input name="nome" class="form-control" type="text" placeholder="Nome..."> 
-                <br>
-                <label>Email</label>
-                <input name="email" class="form-control" type="text" placeholder="Email...">
-                <br>
-                <label>Senha</label>
-                <input name="senha" class="form-control" type="password" placeholder="Senha...">
-                <br>
-                <input class="btn btn-info btn-lg" type="submit" value="Enviar"> 
-                <a href="{%url 'login'%}" class="btn btn-warning btn-lg">Login</a>
-
-            </form>
-        </div>
-        <div class="col-md-3">
+    <div class="row mt-5">
+        <div class="col-md d-flex justify-content-center">
+          <div class="card shadow mb-5 rounded" style="width: 400px; background-color: rgba(255, 255, 255, 0.3);">
+          <div class="card-header text-center text-uppercase">Cadastre-se</div>
+            <div class="card-body">
+              <div class="card-text">
+                <form method="POST" action="{% url 'valida_cadastro' %}"> {% csrf_token %}
+                  <div class="row">
+                    <div class="col-12 form-group">
+                      <label>Nome</label>
+                      <input name="nome" class="form-control" type="text">
+                    </div>
+                    <div class="col-12 form-group">
+                      <label>Email</label>
+                      <input name="email" class="form-control" type="text">
+                    </div>
+                    <div class="col-12 form-group">
+                      <label>Senha</label>
+                      <input name="senha" class="form-control" type="password">
+                    </div>
+                    <div class="col-12 d-flex justify-content-between">
+                      <div>Já tem cadastro? <a href="{%url 'login'%}">Clique aqui.</a></div>
+                      <input class="btn btn-primary" type="submit" value="Salvar">
+                    </div>
+                    
+                  </div>
+    
+                    
+                </form>
+              </div>
+            </div>
+          </div>
+        
             
         </div>
 

@@ -18,31 +18,40 @@
       </div>
     {% endif %}
 
-    <div class="row">
-        <div class="col-md-3">
-            
-        </div>
-        <div class="col-md">
-            <h1>Login</h1>
-            <hr>
-
-            <form method="POST" action="{% url 'valida_login'%}"> {% csrf_token %}
-                <label>Email</label>
-                <input name="email" class="form-control" type="text" placeholder="Email...">
-                <br>
-                <label>Senha</label>
-                <input name="senha" class="form-control" type="password" placeholder="Senha...">
-                <br>
-                <input class="btn btn-info btn-lg" type="submit" value="Enviar"> 
-                <a href="{%url 'cadastro'%}" class="btn btn-warning btn-lg">Cadastro</a>
-
-            </form>
-        </div>
-        <div class="col-md-3">
+    <div class="row mt-5">
+        <div class="col-md d-flex justify-content-center">
+          <div class="card shadow mb-5 rounded" style="width: 400px; background-color: rgba(255, 255, 255, 0.3);">
+          <div class="card-header text-center text-uppercase">Login</div>
+            <div class="card-body">
+              <div class="card-text">
+                <form method="POST" action="{% url 'valida_login' %}"> {% csrf_token %}
+                  <div class="row">
+                    <div class="col-12 form-group">
+                      <label>Email</label>
+                      <input name="email" class="form-control" type="text">
+                    </div>
+                    <div class="col-12 form-group">
+                      <label>Senha</label>
+                      <input name="senha" class="form-control" type="password">
+                    </div>
+                    <div class="col-12 d-flex justify-content-between">
+                      <div>Não tem cadastro? <a href="{%url 'cadastro'%}">Clique aqui.</a></div>
+                      <input class="btn btn-primary" type="submit" value="Login">
+                    </div>
+                    
+                  </div>
+    
+                    
+                </form>
+              </div>
+            </div>
+          </div>
+        
             
         </div>
 
     </div>
+
 </div>
 
 
